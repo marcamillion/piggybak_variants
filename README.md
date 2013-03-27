@@ -17,10 +17,15 @@ Add `acts_as_sellable_with_variants` to any model that should have variants. You
 
 In the admin, define option configurations and option values for each option, then create variants for your sellable instances.
 
-Finally, add `<%= variant_cart_form(@instance) %>` to your sellable item's show page to render the cart form.
+Add `<%= variant_cart_form(@instance) %>` to your sellable item's show page to render the cart form.
 
 OPTION:  `<%= variant_cart_form(@instance, :controls => 'dropdowns') %>` to render dropdowns instead of radio buttons.
 
+In your `config/environments/production.rb`, add the following line to allow pre-compilation of `piggybak_variants.js`:
+
+    config.assets.precompile += %w( piggybak-application.js )
+    
+So either add that line, or if you already have it enabled just add `piggybak-application.js` to the array of values.
 
 TODO
 ========
